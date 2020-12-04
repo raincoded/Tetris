@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>俄罗斯方块</title>
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #root {
+            justify-content: center;
+            display: flex;
+        }
+
+        /* 游戏主面板 */
+        #panel {
+            position: relative;
+        }
+
+        /*  游戏盒子 */
+        #game {
+            background: #000;
+            position: relative;
+            border: 1px solid;
+        }
+
+        .btns {
+            margin-top: 10px;
+        }
+        .btn-item {
+            display: flex;
+            justify-content: center;
+            padding: 5px;
+        }
+        .btn-item button {
+            outline: none;
+            background-color: lime;
+            border: 1px solid;
+            cursor: pointer;
+            margin: 0 20px;
+            padding: 10px;
+        }
+
+        /* 提示信息 */
+        #msg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: rgba(255, 255, 255, .3);
+            z-index: 999;
+        }
+
+        /* 具体的提示文本 */
+        #msg .btn {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid #fff;
+            padding: 10px;
+            background: #f20;
+            color: #fff;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        /* 游戏其他提示信息区域 */
+        #tip {
+            margin-left: 1em;
+        }
+
+        /* 下一组方块提示区域 */
+        #next {
+            position: relative;
+            border: 1px solid;
+        }
+
+        /* 分数 */
+        #score {
+            font-size: 4em;
+            font-weight: bold;
+            color: #f20;
+            text-align: center;
+        }
+
+        .game-message {
+            width: 100%;
+            text-align: center;
+        }
+
+        .game-message span {
+            margin: 0 1rem;
+        }
+
+        button {
+            outline: none;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <div id="panel">
+            <div id="game"></div>
+            <div id="msg">
+                <span class="btn">
+                    点击开始
+                </span>
+            </div>
+            <div class="btns">
+                <div class="btn-item"> <button class="start">开始</button>
+                    <button class="reset">重新开始</button>
+                    <button class="pause">暂停</button></div>
+                <div class="btn-item"> <button class="up">上</button></div>
+                <div class="btn-item"> <button class="left">左</button>
+                    <button class="right">右</button></div>
+                <div class="btn-item"><button class="down">下</button></div>
+            </div>
+        </div>
+        <div id="tip">
+            <div id="next"></div>
+            <div id="score">
+            </div>
+            <div class="game-message">
+                <h4>使用键盘进行游戏：</h4>
+                <p><span>
+                        ↑：旋转
+                    </span>
+                    <span>
+                        ↓：向下
+                    </span>
+                </p>
+                <p>
+                    <span>
+                        ←：左
+                    </span>
+                    <span>
+                        →：右
+                    </span>
+                </p>
+                <p>
+                    <span>
+                        空格：暂停/恢复/开始
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
